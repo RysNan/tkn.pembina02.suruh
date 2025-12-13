@@ -71,22 +71,27 @@ export default function ProgramPage() {
   return (
     <main className="min-h-screen bg-white">
       
-      {/* ================= HEADER SECTION ================= */}
-      <section className="relative pt-24 pb-16 px-4 text-center overflow-hidden bg-blue-50">
-         {/* Dekorasi Background */}
-         <div className="absolute top-0 left-0 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
-         <div className="absolute bottom-0 right-0 w-40 h-40 bg-pink-400 rounded-full blur-3xl opacity-30 translate-x-1/3 translate-y-1/3"></div>
+      {/* ================= HEADER SECTION (GAMBAR) ================= */}
+      <section className="relative h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute inset-0">
+           <Image 
+             src="/images/program.jpg" // SIAPKAN GAMBAR INI
+             alt="Program Kegiatan" 
+             fill className="object-cover"
+           />
+           {/* Overlay Pink/Ungu */}
+           <div className="absolute inset-0 bg-pink-900/60 mix-blend-multiply"></div>
+        </div>
 
-        <div className="container mx-auto relative z-10">
-          {/* Badge Kegiatan Seru */}
-          <span className="inline-block px-4 py-1.5 rounded-full bg-yellow-400 text-blue-900 text-sm font-extrabold mb-4 shadow-md uppercase tracking-wide">
+        <div className="container mx-auto relative z-10 px-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold text-sm mb-4 uppercase tracking-wide">
             Kegiatan Seru
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Program Unggulan Kami
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+            Program Unggulan
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Kami merancang kegiatan yang tidak hanya mendidik, tetapi juga menciptakan kenangan indah masa kecil yang tak terlupakan.
+          <p className="text-pink-50 text-xl max-w-2xl mx-auto font-medium">
+            Menciptakan kenangan indah masa kecil melalui kegiatan yang mendidik.
           </p>
         </div>
       </section>

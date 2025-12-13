@@ -19,21 +19,27 @@ export default function KurikulumPage() {
   return (
     <main className="min-h-screen bg-white font-sans">
       
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative pt-24 pb-16 px-4 bg-yellow-50 overflow-hidden text-center">
-        {/* Dekorasi Awan Putih */}
-        <div className="absolute top-10 left-10 w-24 h-24 bg-white rounded-full opacity-50 blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white rounded-full opacity-50 blur-xl"></div>
+      {/* ================= HERO SECTION (GAMBAR) ================= */}
+      <section className="relative h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute inset-0">
+           <Image 
+             src="/images/kurikulum.jpg" // SIAPKAN GAMBAR INI
+             alt="Kurikulum Belajar" 
+             fill className="object-cover"
+           />
+           {/* Overlay Kuning/Oranye biar beda nuansa */}
+           <div className="absolute inset-0 bg-yellow-900/60 mix-blend-multiply"></div>
+        </div>
 
-        <div className="container mx-auto relative z-10">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-600 font-bold text-sm mb-4 uppercase tracking-wide">
+        <div className="container mx-auto relative z-10 px-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold text-sm mb-4 uppercase tracking-wide">
             Metode Pembelajaran
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
             Kurikulum Merdeka
           </h1>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            Kami menerapkan pembelajaran yang berpusat pada anak (Student Centered) dengan konsep <span className="font-bold text-blue-600">"Bermain adalah Belajar"</span>. Fokus kami adalah mengembangkan karakter, kreativitas, dan kemandirian.
+          <p className="text-yellow-50 text-xl max-w-3xl mx-auto font-medium">
+             Konsep "Bermain adalah Belajar" untuk mengembangkan karakter dan kreativitas.
           </p>
         </div>
       </section>
