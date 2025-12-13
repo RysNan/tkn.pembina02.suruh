@@ -22,12 +22,13 @@ export default function KurikulumPage() {
       {/* ================= HERO SECTION (GAMBAR) ================= */}
       <section className="relative h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0">
+           {/* Pastikan file gambar ada di public/images/kurikulum.jpg */}
            <Image 
-             src="/images/kurikulum.jpg" // SIAPKAN GAMBAR INI
+             src="/images/kurikulum.jpg" 
              alt="Kurikulum Belajar" 
              fill className="object-cover"
            />
-           {/* Overlay Kuning/Oranye biar beda nuansa */}
+           {/* Overlay Kuning/Oranye */}
            <div className="absolute inset-0 bg-yellow-900/60 mix-blend-multiply"></div>
         </div>
 
@@ -102,8 +103,9 @@ export default function KurikulumPage() {
              <h2 className="text-3xl font-bold text-gray-800">Jadwal Harian Siswa</h2>
           </div>
 
-          <div className="relative">
-             {/* Garis Tengah Timeline (Hidden di Mobile) */}
+          {/* CONTAINER 1: TIMELINE (Garis hanya ada di sini) */}
+          <div className="relative mb-12">
+             {/* Garis Tengah Timeline */}
              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-100 rounded-full"></div>
 
              <div className="space-y-6 md:space-y-0">
@@ -119,7 +121,7 @@ export default function KurikulumPage() {
                       </div>
 
                       {/* Card Content */}
-                      <div className="w-full md:w-5/12 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1">
+                      <div className="w-full md:w-5/12 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1 relative z-20">
                          <div className="flex items-center gap-4">
                             <div className={`p-3 rounded-full ${item.bg} ${item.color}`}>
                                <item.icon size={24} />
@@ -138,12 +140,17 @@ export default function KurikulumPage() {
                    </div>
                 ))}
              </div>
-
-             <div className="mt-8 text-center bg-yellow-50 p-4 rounded-xl text-sm text-yellow-800 border border-yellow-200">
-                Catatan: Jadwal hari <strong>Jumat</strong> menyesuaikan dengan kegiatan Ibadah dan Olahraga Bersama.
-             </div>
-
           </div>
+
+          {/* CONTAINER 2: CATATAN (Sudah di luar area garis timeline) */}
+          <div className="relative z-30 text-center bg-yellow-50 p-6 rounded-2xl text-sm text-yellow-900 border border-yellow-200 shadow-sm max-w-2xl mx-auto">
+             <div className="font-bold mb-1 flex items-center justify-center gap-2">
+                <Star size={16} className="text-yellow-600" fill="currentColor" /> 
+                PENTING
+             </div>
+             Catatan: Jadwal hari <strong>Jumat</strong> menyesuaikan dengan kegiatan Ibadah dan Olahraga Bersama.
+          </div>
+
         </div>
       </section>
 
