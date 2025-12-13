@@ -8,11 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // SETTING FONT UTAMA JADI POPPINS
+      // MEMAKSA FONT STANDAR JADI POPPINS
       fontFamily: {
-        sans: ['var(--font-poppins)', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
-      // Warna Cerah (Tetap kita pertahankan)
       colors: {
         cerah: {
           biru: '#0EA5E9',   

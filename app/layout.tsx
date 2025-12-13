@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-// IMPORT POPPINS
+// Import font Poppins
 import { Poppins } from "next/font/google"; 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Konfigurasi Poppins (Sesuai request: Dukungan Beragam Bobot)
+// Konfigurasi Font Poppins
 const poppins = Poppins({ 
   subsets: ["latin"],
   weight: ['300', '400', '500', '600', '700', '800'], 
-  variable: '--font-poppins', // Kita buat variabel CSS
+  variable: '--font-poppins', // Ini variabel penting agar terbaca Tailwind
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="scroll-smooth">
-      {/* Terapkan variabel poppins ke body */}
+      {/* Masukkan variabel font ke Body */}
       <body className={`${poppins.variable} font-sans antialiased`}>
         <div className="flex flex-col min-h-screen">
           <Navbar />
