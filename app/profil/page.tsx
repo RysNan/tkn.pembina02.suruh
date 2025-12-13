@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Target, Award, BookOpen, Users, Star, Quote } from "lucide-react";
+import { Target, Award, BookOpen, Users, Quote } from "lucide-react";
 
 export default function ProfilPage() {
   
-  // Data Guru (Wajib ada Fotonya nanti)
+  // Data Guru
   const teachers = [
     { name: "Siti Nurjanah, S.Pd", role: "Kepala Sekolah", color: "bg-pink-100 text-pink-600" },
     { name: "Ratna Dewi, S.Pd", role: "Guru Kelas A", color: "bg-blue-100 text-blue-600" },
@@ -11,14 +11,14 @@ export default function ProfilPage() {
     { name: "Dwi Astuti, S.Pd", role: "Guru Pendamping", color: "bg-green-100 text-green-600" },
   ];
 
-  // FITUR BARU: Data Alumni (Jejak Alumni / Output Sekolah)
+  // Data Alumni
   const alumni = [
     { 
       name: "Aditya Pratama", 
       gradYear: "Lulusan 2010", 
       achievement: "Sekarang Dokter Muda di RS Kariadi", 
       quote: "Dasar disiplin saya terbentuk di TK Pembina.",
-      image: "/images/alumni-1.jpg" // Placeholder
+      image: "/images/alumni-1.jpg"
     },
     { 
       name: "Anisa Rahma", 
@@ -39,23 +39,38 @@ export default function ProfilPage() {
   return (
     <main className="min-h-screen bg-white">
       
-      {/* ================= HEADER SECTION ================= */}
-      <section className="pt-24 pb-16 px-4 bg-gradient-to-b from-blue-50 to-white text-center">
-        <div className="container mx-auto">
-          <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 font-bold text-sm mb-4 uppercase tracking-wide">
+      {/* ================= HEADER SECTION (HERO IMAGE) ================= */}
+      {/* Ganti text-center biasa dengan Hero Image seperti Beranda */}
+      <section className="relative h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
+        
+        {/* GAMBAR BACKGROUND */}
+        <div className="absolute inset-0">
+           <Image 
+             src="/images/profil.jpg" // Pastikan file ini ada di public/images/
+             alt="Profil Sekolah" 
+             fill 
+             className="object-cover"
+             priority
+           />
+           {/* Overlay Gelap Biru agar teks terbaca */}
+           <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
+        </div>
+
+        {/* KONTEN HEADER */}
+        <div className="container mx-auto relative z-10 px-4">
+          <span className="inline-block px-4 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold text-sm mb-4 uppercase tracking-wide">
              Tentang Kami
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Mengenal Lebih Dekat <br />
-            <span className="text-blue-600">TK Negeri Pembina 02</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+            Mengenal Lebih Dekat
           </h1>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            Lembaga pendidikan anak usia dini yang berkomitmen mencetak generasi yang <strong>Cerdas, Kreatif, dan Berakhlak Mulia</strong>.
+          <p className="text-blue-100 text-xl max-w-2xl mx-auto font-medium">
+            TK Negeri Pembina 02 Suruh: Cerdas, Kreatif, dan Berakhlak Mulia.
           </p>
         </div>
       </section>
 
-      {/* ================= VISI & MISI (Target Output Siswa) ================= */}
+      {/* ================= VISI & MISI ================= */}
       <section className="py-16 px-4">
          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
             
@@ -99,17 +114,15 @@ export default function ProfilPage() {
          </div>
       </section>
 
-      {/* ================= GURU & STAFF (Colorful Grid) ================= */}
+      {/* ================= GURU & STAFF ================= */}
       <section className="py-16 px-4 bg-gray-50">
          <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-10">Guru & Tenaga Pendidik</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                {teachers.map((teacher, idx) => (
-                  <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all border-b-4 border-transparent hover:border-blue-400">
-                     {/* Foto Guru Circle */}
-                     <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold ${teacher.color}`}>
-                        {/* Placeholder Initials - Ganti <Image /> nanti */}
+                  <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all border-b-4 border-transparent hover:border-blue-400 group">
+                     <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold ${teacher.color} group-hover:scale-110 transition duration-300`}>
                         {teacher.name.charAt(0)}
                      </div>
                      <h3 className="font-bold text-gray-900">{teacher.name}</h3>
@@ -120,9 +133,8 @@ export default function ProfilPage() {
          </div>
       </section>
 
-      {/* ================= NEW: JEJAK ALUMNI (Revisi Poin 2) ================= */}
+      {/* ================= JEJAK ALUMNI ================= */}
       <section className="py-20 px-4 bg-white relative overflow-hidden">
-         {/* Dekorasi Blob */}
          <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -z-10"></div>
 
          <div className="container mx-auto">
@@ -135,12 +147,9 @@ export default function ProfilPage() {
             <div className="grid md:grid-cols-3 gap-8">
                {alumni.map((alum, idx) => (
                   <div key={idx} className="bg-white border border-gray-100 p-8 rounded-3xl shadow-lg relative hover:-translate-y-2 transition-transform duration-300">
-                     {/* Ikon Kutip Besar */}
                      <Quote className="absolute top-6 right-6 text-gray-200 fill-gray-100" size={40} />
-                     
                      <div className="flex items-center gap-4 mb-6">
                         <div className="w-14 h-14 bg-gray-200 rounded-full overflow-hidden">
-                           {/* Placeholder Foto Alumni */}
                            <div className="w-full h-full bg-blue-100 flex items-center justify-center text-blue-500 font-bold">
                               {alum.name.charAt(0)}
                            </div>
@@ -152,9 +161,7 @@ export default function ProfilPage() {
                            </span>
                         </div>
                      </div>
-
                      <p className="text-gray-600 italic mb-4">"{alum.quote}"</p>
-                     
                      <div className="border-t border-gray-100 pt-4 mt-2">
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wide">Prestasi / Saat Ini:</p>
                         <p className="text-sm font-semibold text-green-600 flex items-center gap-1 mt-1">
@@ -164,8 +171,7 @@ export default function ProfilPage() {
                   </div>
                ))}
             </div>
-
-            {/* Callout untuk Alumni lain */}
+            
             <div className="mt-12 text-center">
                <p className="text-gray-500 text-sm">
                   Apakah Anda alumni TK Negeri Pembina 02? <br/>
