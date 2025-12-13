@@ -10,15 +10,7 @@ const Footer = () => {
           
           {/* KOLOM 1: KONTAK KAMI (Pindah ke Kiri) */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3 mb-4">
-                {/* Logo Gabungan (Logo Sekolah + Slogan di dalam gambar logo nanti) */}
-               <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold">
-                  TK
-               </div>
-               <span className="text-xl font-bold text-blue-600 font-[Century Gothic]">
-                 TK Negeri Pembina 02
-               </span>
-            </div>
+
 
             <h3 className="font-bold text-gray-800 text-lg">Hubungi Kami</h3>
             <ul className="space-y-3 text-sm text-gray-600">
