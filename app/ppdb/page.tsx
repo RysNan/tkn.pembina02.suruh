@@ -1,20 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  FileText, ClipboardCheck, UserSearch, Megaphone, 
-  Calendar, CheckCircle2, DollarSign, Phone, Download, MapPin 
+  FileText, UserSearch, Calendar, CheckCircle2, 
+  MapPin, MessageCircle, Phone 
 } from "lucide-react";
 
 export default function PpdbPage() {
   
-  // Data Alur Pendaftaran (Updated)
+  // Data Alur Pendaftaran
   const steps = [
     { num: "01", title: "Cek Jadwal & Gelombang", desc: "Pastikan Anda mengetahui jadwal pendaftaran yang sedang dibuka." },
     { num: "02", title: "Siapkan Syarat & Dokumen", desc: "Lengkapi formulir dan berkas persyaratan yang dibutuhkan." },
     { num: "03", title: "Hubungi & Daftar", desc: "Hubungi kontak kami atau datang langsung untuk verifikasi." },
   ];
 
-  // Data Biaya
   const costs = [
     { item: "Pendaftaran", price: "Rp 25.000", note: "Sekali bayar saat pendaftaran" },
     { item: "SPP Perbulan", price: "Rp 50.000", note: "Dibayar tiap 1 bulan sekali" },
@@ -25,7 +24,7 @@ export default function PpdbPage() {
   return (
     <main className="min-h-screen bg-white font-sans">
       
-      {/* ================= HEADER SECTION (High Contrast) ================= */}
+      {/* ================= HEADER SECTION ================= */}
       <section className="relative pt-24 pb-20 px-4 text-center overflow-hidden bg-blue-800">
          
          {/* Pattern Dekorasi */}
@@ -120,7 +119,7 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= ALUR PENDAFTARAN (Gambar + Teks) ================= */}
+      {/* ================= ALUR PENDAFTARAN ================= */}
       <section className="py-20 px-4 bg-yellow-50 relative overflow-hidden">
          <div className="container mx-auto">
             <div className="text-center mb-12">
@@ -141,7 +140,7 @@ export default function PpdbPage() {
                </div>
             </div>
 
-            {/* Teks Alur (Grid 3 Kolom) */}
+            {/* Teks Alur */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                {steps.map((step, idx) => (
                   <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-1 transition text-center border-b-4 border-yellow-400">
@@ -172,9 +171,9 @@ export default function PpdbPage() {
                     <div key={idx} className="p-6 flex flex-col sm:flex-row items-center justify-between gap-4 hover:bg-blue-50/50 transition">
                        <div className="text-center sm:text-left">
                           <h4 className="text-lg font-bold text-gray-800">{cost.item}</h4>
-                          <p className="text-sm text-gray-500">{cost.note}</p>
+                          <p className="text-sm text-gray-500 max-w-md">{cost.note}</p>
                        </div>
-                       <div className="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg">
+                       <div className="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg whitespace-nowrap">
                           {cost.price}
                        </div>
                     </div>
@@ -185,31 +184,52 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= CTA & LOKASI ================= */}
+      {/* ================= CTA: DATANG & KONTAK ================= */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-center relative overflow-hidden">
          <div className="container mx-auto relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Siap Bergabung?</h2>
             <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
-               Segera daftarkan putra-putri Anda sebelum kuota terpenuhi. Kami menantikan kehadiran Anda di TK Negeri Pembina 02 Suruh.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5 justify-center">
-               <Link 
-                  href="/kontak" 
-                  className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-full font-extrabold text-lg shadow-lg hover:bg-yellow-300 transition hover:scale-105 flex items-center justify-center gap-2"
-               >
-                  <MapPin size={22} />
-                  Datang ke Sekolah
-               </Link>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                
-               <button 
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-2"
-               >
-                  <Download size={22} />
-                  Download Formulir
-               </button>
-            </div>
+               {/* PILIHAN 1: KONTAK (ONLINE) */}
+               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-3xl flex flex-col items-center">
+                  <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mb-4 shadow-lg">
+                     <MessageCircle size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">Informasi Online</h3>
+                  <p className="text-blue-100 text-sm mb-6">Chat panitia PPDB untuk mendaftar atau bertanya.</p>
+                  
+                  <div className="flex flex-col gap-3 w-full">
+                     <a href="https://wa.me/6285870329978" target="_blank" className="w-full bg-white text-green-700 py-3 rounded-xl font-bold hover:bg-green-50 transition flex items-center justify-center gap-2">
+                        Chat Bu Us
+                     </a>
+                     <a href="https://wa.me/62895377919364" target="_blank" className="w-full bg-white text-green-700 py-3 rounded-xl font-bold hover:bg-green-50 transition flex items-center justify-center gap-2">
+                        Chat Bu Sari
+                     </a>
+                  </div>
+               </div>
 
+               {/* PILIHAN 2: DATANG KE SEKOLAH (OFFLINE) */}
+               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-3xl flex flex-col items-center">
+                  <div className="w-16 h-16 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                     <MapPin size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">Datang ke Sekolah</h3>
+                  <p className="text-blue-100 text-sm mb-6">Ambil formulir dan lihat fasilitas sekolah secara langsung.</p>
+                  
+                  <div className="w-full mt-auto">
+                     <Link 
+                        href="/kontak" 
+                        className="w-full bg-yellow-400 text-blue-900 py-3 rounded-xl font-bold hover:bg-yellow-300 transition flex items-center justify-center gap-2 shadow-lg"
+                     >
+                        Lihat Lokasi Sekolah
+                     </Link>
+                  </div>
+               </div>
+
+            </div>
          </div>
       </section>
 
