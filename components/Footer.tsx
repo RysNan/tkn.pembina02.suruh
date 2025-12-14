@@ -1,91 +1,67 @@
-import Link from 'next/link';
-import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image"; // IMPORT WAJIB
+import { Facebook, Instagram, Mail, Phone, MapPin, Video } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-12 pb-6 border-t-4 border-blue-400">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-900 text-white pt-16 pb-8 font-sans border-t-8 border-yellow-400">
+      <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12 mb-12">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          
-          {/* KOLOM 1: KONTAK KAMI (Pindah ke Kiri) */}
-          <div className="space-y-4">
-
-
-            <h3 className="font-bold text-gray-800 text-lg">Hubungi Kami</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-               {/* Link Google Maps */}
-               <li>
-                  <a href="https://maps.google.com/?q=Jl+Raya+Suruh" target="_blank" rel="noreferrer" className="flex items-start gap-3 hover:text-blue-500 transition">
-                    <MapPin size={20} className="text-blue-500 shrink-0" />
-                    <span>Jl. Raya Suruh No. 123, Suruh, Jawa Tengah</span>
-                  </a>
-               </li>
-               {/* Link Telepon/WA */}
-               <li>
-                  <a href="https://wa.me/628123456789" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-green-500 transition">
-                    <Phone size={20} className="text-green-500 shrink-0" />
-                    <span>(0298) 123456</span>
-                  </a>
-               </li>
-               {/* Link Email */}
-               <li>
-                  <a href="mailto:info@tkpembina.sch.id" className="flex items-center gap-3 hover:text-orange-500 transition">
-                    <Mail size={20} className="text-orange-500 shrink-0" />
-                    <span>info@tkpembina.sch.id</span>
-                  </a>
-               </li>
-            </ul>
-            
-            {/* Sosmed Icons */}
-            <div className="flex gap-3 pt-2">
-               <a href="#" className="w-9 h-9 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center hover:bg-pink-500 hover:text-white transition"><Instagram size={18} /></a>
-               <a href="#" className="w-9 h-9 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><Facebook size={18} /></a>
-               <a href="#" className="w-9 h-9 bg-red-100 text-red-500 rounded-full flex items-center justify-center hover:bg-red-600 hover:text-white transition"><Youtube size={18} /></a>
-            </div>
-          </div>
-
-          {/* KOLOM 2: PROGRAM UNGGULAN (Tengah) */}
-          <div>
-            <h3 className="font-bold text-gray-800 text-lg mb-4">Program Unggulan</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-               {['Posyandu Integrasi', 'Outing Class', 'Peringatan Hari Besar', 'Drumband Cilik', 'Tari Tradisional'].map((item, idx) => (
-                 <li key={idx} className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${idx % 2 === 0 ? 'bg-yellow-400' : 'bg-pink-400'}`}></div> 
-                    <Link href="/program" className="hover:translate-x-1 transition duration-300 hover:text-blue-600">
-                      {item}
-                    </Link>
-                 </li>
-               ))}
-            </ul>
-          </div>
-
-          {/* KOLOM 3: Output / Alumni (Fitur Baru) */}
-          <div>
-             <h3 className="font-bold text-gray-800 text-lg mb-4">Generasi Emas</h3>
-             <p className="text-sm text-gray-600 mb-4">
-               Kami berkomitmen mencetak lulusan yang berkarakter, cerdas, dan siap melangkah ke jenjang Sekolah Dasar.
-             </p>
-             <Link href="/profil" className="inline-block bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition shadow-md">
-                Lihat Profil Alumni
-             </Link>
-          </div>
-
+        {/* Kolom 1: Identitas & Logo Baru */}
+        <div>
+           <p className="text-gray-400 leading-relaxed mb-6">
+              Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
+           </p>
         </div>
 
-        {/* COPYRIGHT BARU */}
-        <div className="border-t border-gray-100 py-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-           <p>© 2025 TK Negeri Pembina 02 Suruh. All rights reserved.</p>
-           <div className="flex items-center gap-1 mt-2 md:mt-0">
-              <span>Powered by</span>
-              <span className="font-bold text-blue-600">PT Eintio</span>
+        {/* Kolom 2: Kontak (Data Real) */}
+        <div>
+           <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Hubungi Kami</h4>
+           <ul className="space-y-4 text-gray-300">
+              <li className="flex items-start gap-3">
+                 <MapPin className="text-yellow-400 shrink-0" size={20} />
+                 <span>Kecamatan Suruh, Kabupaten Semarang</span>
+              </li>
+              <li className="flex items-center gap-3">
+                 <Phone className="text-yellow-400 shrink-0" size={20} />
+                 <span>0858-7032-9978 (Bu Us)</span>
+              </li>
+              <li className="flex items-center gap-3">
+                 <Mail className="text-yellow-400 shrink-0" size={20} />
+                 <span>tknpembinasuruh02@gmail.com</span>
+              </li>
+           </ul>
+        </div>
+
+        {/* Kolom 3: Sosmed & Link (Data Real) */}
+        <div>
+           <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Sosial Media</h4>
+           <div className="flex gap-4 mb-8">
+              <Link href="https://facebook.com/TekaNegeriKebowan" target="_blank" className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition">
+                 <Facebook size={20} />
+              </Link>
+              <Link href="https://instagram.com/tkn_pembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:bg-pink-500 transition">
+                 <Instagram size={20} />
+              </Link>
+              <Link href="https://tiktok.com/@tekanegeripembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                 <Video size={20} />
+              </Link>
+           </div>
+           
+           <h4 className="font-bold text-lg mb-4 text-white">Menu Cepat</h4>
+           <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+              <Link href="/profil" className="hover:text-yellow-400 transition">Profil</Link>
+              <Link href="/kurikulum" className="hover:text-yellow-400 transition">Kurikulum</Link>
+              <Link href="/ppdb" className="hover:text-yellow-400 transition">PPDB</Link>
+              <Link href="/galeri" className="hover:text-yellow-400 transition">Galeri</Link>
            </div>
         </div>
+
       </div>
-      
-      {/* VERSI WEBSITE (Fixed di pojok kanan bawah layar) */}
-      <div className="fixed bottom-2 right-2 bg-black/80 text-white text-[10px] px-2 py-1 rounded z-50 opacity-50 hover:opacity-100 transition cursor-default">
-         v1.1.0 (Dev)
+
+      {/* Copyright */}
+      <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+         © {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved.
       </div>
     </footer>
   );

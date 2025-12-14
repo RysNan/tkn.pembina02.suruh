@@ -7,33 +7,31 @@ import {
 
 export default function PpdbPage() {
   
-  // Data Alur Pendaftaran (Teks tetap ada sebagai pelengkap gambar)
+  // Data Alur Pendaftaran (Updated)
   const steps = [
-    { num: "01", title: "Isi Formulir", desc: "Ambil formulir di sekolah atau download online." },
-    { num: "02", title: "Serahkan Berkas", desc: "Kembalikan formulir beserta syarat dokumen." },
-    { num: "03", title: "Observasi", desc: "Anak mengikuti observasi bermain sederhana." },
-    { num: "04", title: "Daftar Ulang", desc: "Pembayaran administrasi & pengambilan seragam." },
+    { num: "01", title: "Cek Jadwal & Gelombang", desc: "Pastikan Anda mengetahui jadwal pendaftaran yang sedang dibuka." },
+    { num: "02", title: "Siapkan Syarat & Dokumen", desc: "Lengkapi formulir dan berkas persyaratan yang dibutuhkan." },
+    { num: "03", title: "Hubungi & Daftar", desc: "Hubungi kontak kami atau datang langsung untuk verifikasi." },
   ];
 
   // Data Biaya
   const costs = [
-    { item: "Pendaftaran", price: "Rp 200.000", note: "Sekali bayar" },
-    { item: "Uang Pangkal", price: "Rp 1.500.000", note: "Pengembangan sarana" },
-    { item: "SPP Bulanan", price: "Rp 300.000", note: "Termasuk makan sehat" },
-    { item: "Seragam (4 Stel)", price: "Rp 800.000", note: "Batik, Olahraga, Kotak, Muslim" },
+    { item: "Pendaftaran", price: "Rp 25.000", note: "Sekali bayar saat pendaftaran" },
+    { item: "SPP Perbulan", price: "Rp 50.000", note: "Dibayar tiap 1 bulan sekali" },
+    { item: "Seragam 6 Setel Putra", price: "Rp 600.000", note: "Seragam biru putih, Batik Nasional, Identitas, Hem, Baju tradisional, Kaos Olahraga" },
+    { item: "Seragam 6 Setel Putri", price: "Rp 650.000", note: "Seragam biru putih, Batik Nasional, Identitas, Hem, Baju tradisional, Kaos Olahraga" },
   ];
 
   return (
     <main className="min-h-screen bg-white font-sans">
       
       {/* ================= HEADER SECTION (High Contrast) ================= */}
-      {/* Ganti bg-cerah-biru jadi bg-blue-800 (Biru Tua) agar teks putih JELAS */}
       <section className="relative pt-24 pb-20 px-4 text-center overflow-hidden bg-blue-800">
          
-         {/* Pattern Dekorasi (Dibuat samar) */}
+         {/* Pattern Dekorasi */}
          <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{ backgroundImage: 'radial-gradient(#fff 2px, transparent 2px)', backgroundSize: '30px 30px' }}></div>
          
-         {/* Blob Dekorasi (Warna diganti agar tidak tabrakan) */}
+         {/* Blob Dekorasi */}
          <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-50"></div>
          <div className="absolute top-10 -left-10 w-40 h-40 bg-purple-600 rounded-full blur-3xl opacity-40"></div>
 
@@ -44,7 +42,7 @@ export default function PpdbPage() {
             <span className="font-bold text-sm tracking-wide text-yellow-50">Tahun Ajaran 2025/2026</span>
           </div>
           
-          {/* Judul Utama (Putih Tebal di atas Biru Tua = Sangat Jelas) */}
+          {/* Judul Utama */}
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg text-white">
             Pendaftaran Peserta Didik Baru
           </h1>
@@ -57,21 +55,23 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= SYARAT & KETENTUAN (Card Style) ================= */}
+      {/* ================= SYARAT & KETENTUAN ================= */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-start">
           
-          {/* Kolom Kiri: Ilustrasi Foto */}
+          {/* Kolom Kiri: Ilustrasi Foto Suasana */}
           <div className="relative">
-             <div className="aspect-[4/5] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition duration-500">
-                {/* Placeholder Foto Suasana Pendaftaran */}
-                <div className="w-full h-full flex items-center justify-center bg-blue-100 text-blue-400 font-bold text-center p-4">
-                   FOTO SUASANA<br/>PENDAFTARAN / ANAK SEKOLAH
-                </div>
-                {/* <Image src="/images/ppdb-suasana.jpg" fill className="object-cover" alt="Suasana PPDB" /> */}
+             <div className="aspect-[4/5] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition duration-500 relative">
+                {/* Pastikan gambar ada di public/images/ppdb-suasana.jpg */}
+                <Image 
+                  src="/images/ppdb-suasana.jpg" 
+                  fill 
+                  className="object-cover" 
+                  alt="Suasana PPDB" 
+                />
              </div>
              {/* Dekorasi Sticker */}
-             <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-blue-900 px-6 py-4 rounded-xl shadow-lg font-bold text-lg transform -rotate-6">
+             <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-blue-900 px-6 py-4 rounded-xl shadow-lg font-bold text-lg transform -rotate-6 z-10">
                 ✨ Kuota Terbatas!
              </div>
           </div>
@@ -85,11 +85,10 @@ export default function PpdbPage() {
                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                   <ul className="space-y-3">
                      {[
-                        "Fotocopy Akta Kelahiran (2 lbr)",
-                        "Fotocopy Kartu Keluarga (2 lbr)",
-                        "Fotocopy KTP Orang Tua (2 lbr)",
-                        "Pas Foto Anak 3x4 (4 lbr)",
-                        "Fotocopy Kartu Imunisasi/KIA"
+                        "Mengisi Formulir Pendaftaran",
+                        "Fotocopy Akta Kelahiran",
+                        "Fotocopy Kartu Keluarga",
+                        "Fotocopy KMS, KIP/SKTM"
                      ].map((req, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-gray-700 font-medium">
                            <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">✓</div>
@@ -121,7 +120,7 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= ALUR PENDAFTARAN (Revisi: Gambar Alur) ================= */}
+      {/* ================= ALUR PENDAFTARAN (Gambar + Teks) ================= */}
       <section className="py-20 px-4 bg-yellow-50 relative overflow-hidden">
          <div className="container mx-auto">
             <div className="text-center mb-12">
@@ -129,21 +128,21 @@ export default function PpdbPage() {
                <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Alur Pendaftaran</h2>
             </div>
 
-            {/* AREA GAMBAR ALUR (Sesuai Revisi Poin 5) */}
-            <div className="max-w-5xl mx-auto bg-white p-4 md:p-8 rounded-3xl shadow-xl border-4 border-white mb-12">
-               {/* Placeholder Gambar Alur */}
-               <div className="aspect-[16/9] md:aspect-[21/9] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center relative overflow-hidden group">
-                  <div className="text-center p-6">
-                     <FileText size={48} className="mx-auto text-gray-300 mb-2" />
-                     <p className="text-gray-400 font-bold text-lg">TEMPAT GAMBAR ALUR / INFOGRAFIS</p>
-                     <p className="text-gray-400 text-sm">(Upload desain alur pendaftaran di sini)</p>
-                  </div>
-                  {/* <Image src="/images/alur-ppdb.jpg" fill className="object-contain" alt="Alur Pendaftaran" /> */}
+            {/* AREA GAMBAR ALUR */}
+            <div className="max-w-5xl mx-auto bg-white p-2 md:p-4 rounded-3xl shadow-xl border-4 border-white mb-12">
+               <div className="aspect-[16/9] md:aspect-[21/9] bg-gray-50 rounded-xl overflow-hidden relative">
+                  {/* Pastikan gambar ada di public/images/alur.jpg */}
+                  <Image 
+                    src="/images/alur.jpg" 
+                    fill 
+                    className="object-contain" 
+                    alt="Infografis Alur Pendaftaran" 
+                  />
                </div>
             </div>
 
-            {/* Fallback: Teks Alur (Tetap ada sebagai penjelasan jika gambar belum load/untuk SEO) */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Teks Alur (Grid 3 Kolom) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                {steps.map((step, idx) => (
                   <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm hover:-translate-y-1 transition text-center border-b-4 border-yellow-400">
                      <div className="text-4xl font-extrabold text-yellow-200 mb-2">{step.num}</div>
@@ -156,7 +155,7 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= BIAYA PENDIDIKAN (Tabel Bersih) ================= */}
+      {/* ================= BIAYA PENDIDIKAN ================= */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
            <div className="text-center mb-10">
@@ -186,7 +185,7 @@ export default function PpdbPage() {
       </section>
 
 
-      {/* ================= CTA & LOKASI (Termasuk area Gmaps user) ================= */}
+      {/* ================= CTA & LOKASI ================= */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-center relative overflow-hidden">
          <div className="container mx-auto relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Siap Bergabung?</h2>
@@ -210,12 +209,6 @@ export default function PpdbPage() {
                   Download Formulir
                </button>
             </div>
-
-            {/* =========================================================
-                AREA GMAPS (Jika user ingin menampilkan peta di sini)
-                Silakan tempel <iframe> Gmaps kamu di bawah div ini jika perlu.
-                Tapi karena sudah ada di Footer/Kontak, tombol "Datang ke Sekolah" di atas sudah cukup.
-            =========================================================== */}
 
          </div>
       </section>

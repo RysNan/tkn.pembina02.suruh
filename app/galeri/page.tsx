@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react"; // Tambah import Suspense
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { PlayCircle, Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react"; // PlayCircle dihapus karena sudah pakai iframe
 
-// 1. KITA UBAH NAMA KOMPONEN UTAMA TADI JADI "GaleriContent"
+// 1. KOMPONEN ISI GALERI
 function GaleriContent() {
   const searchParams = useSearchParams();
   const kategoriUrl = searchParams.get('kategori'); 
@@ -13,28 +13,48 @@ function GaleriContent() {
   // State Filter
   const [activeCategory, setActiveCategory] = useState("Semua");
 
-  // Update filter otomatis jika ada link dari halaman Program
+  // Update filter otomatis jika ada link dari halaman lain
   useEffect(() => {
     if (kategoriUrl) {
-      setActiveCategory(kategoriUrl);
+      // Normalisasi nama kategori dari URL agar cocok dengan data baru
+      let categoryMap: { [key: string]: string } = {
+        'Posyandu': 'Posyandu',
+        'Outing': 'Outing Class',
+        'Lingkungan': 'Pengenalan Lingkungan',
+        'Acara': 'Peringatan Hari Besar'
+      };
+      setActiveCategory(categoryMap[kategoriUrl] || "Semua");
     }
   }, [kategoriUrl]);
 
-  // Data Kategori 
+  // --- DATA KATEGORI BARU (Sesuai Request) ---
   const categories = [
-    "Semua", "Posyandu", "Outing", "Acara", "Seni", "Karya",
+    "Semua",
+    "Posyandu",
+    "Outing Class",
+    "Pengenalan Lingkungan",
+    "Peringatan Hari Besar",
   ];
 
-  // Data Foto
+  // --- DATA FOTO BARU (Sesuai Request nama file) ---
+  // Pastikan file-file ini ada di folder public/images/
   const galleryItems = [
-    { id: 1, title: "Pemeriksaan Gigi Rutin", category: "Posyandu", image: "/images/galeri-posyandu.jpg" },
-    { id: 2, title: "Kunjungan ke Museum Kereta", category: "Outing", image: "/images/galeri-outing1.jpg" },
-    { id: 3, title: "Lomba Mewarnai Hari Ibu", category: "Acara", image: "/images/galeri-acara1.jpg" },
-    { id: 4, title: "Pentas Drumband Cilik", category: "Seni", image: "/images/galeri-drumband.jpg" },
-    { id: 5, title: "Panen Sayur Hidroponik", category: "Outing", image: "/images/galeri-kebun.jpg" },
-    { id: 6, title: "Pentas Tari Daerah", category: "Seni", image: "/images/galeri-tari.jpg" },
-    { id: 7, title: "Hasil Lukisan Jari", category: "Karya", image: "/images/galeri-karya1.jpg" },
-    { id: 8, title: "Upacara Kemerdekaan", category: "Acara", image: "/images/galeri-upacara.jpg" },
+    // Posyandu
+    { id: 1, title: "Kegiatan Posyandu Rutin", category: "Posyandu", image: "/images/posyandu1.jpg" },
+    { id: 2, title: "Pemeriksaan Tumbuh Kembang Anak", category: "Posyandu", image: "/images/posyandu2.jpg" },
+    
+    // Outing Class
+    { id: 3, title: "Kunjungan Edukatif Luar Sekolah", category: "Outing Class", image: "/images/outing1.jpg" },
+    { id: 4, title: "Belajar Seru di Alam Terbuka", category: "Outing Class", image: "/images/outing2.jpg" },
+    
+    // Pengenalan Lingkungan
+    { id: 5, title: "Berjalan-jalan di Lingkungan Sekitar", category: "Pengenalan Lingkungan", image: "/images/pengenalan1.jpg" },
+    { id: 6, title: "Mengenal Tetangga & Lingkungan Sekolah", category: "Pengenalan Lingkungan", image: "/images/pengenalan2.jpg" },
+    
+    // Peringatan Hari Besar
+    { id: 7, title: "Pentas Seni Hari Kemerdekaan", category: "Peringatan Hari Besar", image: "/images/haribesar1.jpg" },
+    { id: 8, title: "Lomba Fashion Show Kartini", category: "Peringatan Hari Besar", image: "/images/haribesar2.jpg" },
+    { id: 9, title: "Perayaan Maulid Nabi", category: "Peringatan Hari Besar", image: "/images/haribesar3.jpg" },
   ];
 
   // Logic Filter
@@ -49,18 +69,26 @@ function GaleriContent() {
       <section className="bg-yellow-50 pt-24 pb-10 px-4 text-center">
         <div className="container mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Galeri & Dokumentasi</h1>
-          <p className="text-gray-500">Momen keceriaan dan tumbuh kembang siswa TK Pembina 02.</p>
+          <p className="text-gray-500">Momen keceriaan dan tumbuh kembang siswa TK Negeri Pembina 02 Suruh.</p>
         </div>
       </section>
 
-      {/* VIDEO HIGHLIGHT */}
+      {/* ================= VIDEO HIGHLIGHT (YOUTUBE ASLI) ================= */}
       <section className="px-4 -mt-6 mb-12 relative z-10">
          <div className="container mx-auto max-w-4xl">
-            <div className="relative aspect-video bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border-4 border-white group cursor-pointer">
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/40 hover:bg-black/30 transition">
-                  <PlayCircle size={64} className="mb-4 text-yellow-400 animate-pulse" />
-                  <span className="font-bold tracking-widest">TONTON PROFIL SEKOLAH</span>
-               </div>
+            {/* Container Aspect Ratio untuk Video */}
+            <div className="relative aspect-video bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+               {/* Iframe YouTube */}
+               <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/Jg1oj9jf3z4?si=k1L2m3n4o5p6q7r8&rel=0" // Link embed dengan ID video baru
+                  title="Profil TK Negeri Pembina 02 Suruh"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                  className="absolute inset-0"
+               ></iframe>
             </div>
          </div>
       </section>
@@ -69,7 +97,7 @@ function GaleriContent() {
       <section className="pb-20 px-4">
         <div className="container mx-auto">
           
-          {/* TAB MENU */}
+          {/* TAB MENU KATEGORI BARU */}
           <div className="flex flex-wrap justify-center gap-2 mb-10 sticky top-24 z-30 bg-white/80 backdrop-blur py-4 rounded-xl">
             {categories.map((cat) => (
               <button
@@ -91,12 +119,24 @@ function GaleriContent() {
             {filteredItems.map((item) => (
               <div key={item.id} className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100 aspect-square">
                 
-                <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
+                {/* KOMPONEN GAMBAR ASLI (Diaktifkan) */}
+                {/* Pastikan file gambar sudah ada di folder public/images/ */}
+                <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                
+                {/* Fallback jika gambar belum ada (bisa dihapus jika semua gambar sudah siap) */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 -z-10">
                    <ImageIcon size={32} />
                 </div>
 
+                {/* Overlay Info (Muncul saat hover) */}
                 <div className="absolute inset-0 bg-blue-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4">
-                   <span className="bg-yellow-400 text-blue-900 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                   <span className="bg-yellow-400 text-blue-900 text-xs font-bold px-3 py-1 rounded-full mb-3 truncate max-w-[90%]">
                       {item.category}
                    </span>
                    <h3 className="text-white font-bold text-lg leading-tight">
@@ -108,9 +148,10 @@ function GaleriContent() {
             ))}
           </div>
 
+          {/* Empty State */}
           {filteredItems.length === 0 && (
              <div className="text-center py-10 text-gray-400">
-                Belum ada foto untuk kategori ini.
+                Belum ada foto untuk kategori ini. Silakan tambahkan di folder images.
              </div>
           )}
 
@@ -121,11 +162,10 @@ function GaleriContent() {
   );
 }
 
-// 2. INI KOMPONEN PEMBUNGKUS BARU (Wajib ada Suspense)
+// 2. KOMPONEN PEMBUNGKUS (Wajib ada Suspense)
 export default function GaleriPage() {
   return (
-    // Fallback adalah tampilan sementara saat loading URL
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Memuat Galeri...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center font-bold text-blue-600">Memuat Galeri...</div>}>
       <GaleriContent />
     </Suspense>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; // IMPORT WAJIB UNTUK GAMBAR
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -9,39 +10,47 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // UPDATE STRUKTUR MENU (Sesuai Revisi)
+  // Struktur Menu
   const navLinks = [
     { name: "Beranda", href: "/" },
     { name: "Profil", href: "/profil" },
-    { name: "Kurikulum", href: "/kurikulum" }, // Menu Baru
-    { name: "Program", href: "/program" },     // Nama dipersingkat
+    { name: "Kurikulum", href: "/kurikulum" },
+    { name: "Program", href: "/program" },
     { name: "Galeri", href: "/galeri" },
     { name: "PPDB", href: "/ppdb" },
     { name: "Kontak", href: "/kontak" },
   ];
 
-  // Fungsi cek aktif
   const isActive = (path: string) => pathname === path;
 
   return (
-    // Tambahkan font-sans agar pakai Quicksand
     <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full font-sans border-b-4 border-yellow-400">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* LOGO SECTION - Lebih Colorful */}
+          {/* ================= BAGIAN LOGO BARU ================= */}
           <Link href="/" className="flex items-center gap-3 group">
-            {/* Logo Bulat Kuning */}
-            <div className="w-11 h-11 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-extrabold shadow-md group-hover:scale-110 transition border-2 border-white">
-              TK
+            {/* Container Gambar Logo */}
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md group-hover:scale-110 transition">
+               {/* Pastikan nama file sesuai: /images/logo-tk.png (atau .jpg) */}
+               <Image 
+                 src="/images/logo-tk.png" 
+                 alt="Logo TK Negeri Pembina 02 Suruh"
+                 fill
+                 className="object-cover" // Agar gambar mengisi lingkaran dengan rapi
+               />
             </div>
+            
+            {/* Teks Nama Sekolah */}
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-blue-900 leading-none group-hover:text-blue-600 transition">
-                TK Pembina 02
+              <span className="text-xl font-bold text-blue-900 leading-none group-hover:text-blue-600 transition font-poppins">
+                TK Negeri Pembina 02
               </span>
-              <span className="text-xs text-gray-500 font-bold tracking-wider">SURUH</span>
+              <span className="text-xs text-gray-500 font-bold tracking-wider">SURUH, KAB. SEMARANG</span>
             </div>
           </Link>
+          {/* ==================================================== */}
+
 
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-1">
@@ -51,10 +60,10 @@ const Navbar = () => {
                 href={link.href}
                 className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300
                   ${isActive(link.href) 
-                    ? "bg-blue-100 text-blue-700 shadow-inner" // State Aktif: Biru Muda
-                    : "text-gray-600 hover:bg-yellow-50 hover:text-yellow-600" // Hover: Kuning Tipis
+                    ? "bg-blue-100 text-blue-700 shadow-inner" 
+                    : "text-gray-600 hover:bg-yellow-50 hover:text-yellow-600"
                   }
-                  ${link.name === "PPDB" ? "!bg-yellow-400 !text-blue-900 shadow-md hover:!bg-yellow-300 transform hover:-translate-y-1" : ""} // Tombol Spesial PPDB
+                  ${link.name === "PPDB" ? "!bg-yellow-400 !text-blue-900 shadow-md hover:!bg-yellow-300 transform hover:-translate-y-1" : ""}
                 `}
               >
                 {link.name}
