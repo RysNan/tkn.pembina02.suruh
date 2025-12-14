@@ -7,23 +7,23 @@ export default function ProfilPage() {
   const teachers = [
     { 
       name: "Rahayu Kurniasari", 
-      role: "Kepala Sekolah", 
-      image: "/images/rahayu.jpg" 
+      role: "Guru Kelas", 
+      image: "/images/Rahayu.JPG" 
     },
     { 
       name: "Uswatul Umami, S.Pd AUD", 
-      role: "Guru Kelas", 
-      image: "/images/uswatul.jpg" 
+      role: "Kepala Sekolah", 
+      image: "/images/Uswatul.jpg" 
     },
     { 
       name: "Nur Sholekah, S.Pd", 
       role: "Guru Kelas", 
-      image: "/images/nur.jpg" 
+      image: "/images/Nur.JPG" 
     },
     { 
       name: "Rina Septi Nugraheni, S.Pd", 
       role: "Guru Kelas", 
-      image: "/images/rina.jpg" 
+      image: "/images/Rina.jpg" 
     },
   ];
 
@@ -57,7 +57,7 @@ export default function ProfilPage() {
       </section>
 
       {/* ================= VISI & MISI ================= */}
-      <section className="py-16 px-4">
+      <section className="pt-16 pb-4 px-4">
          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-stretch">
             {/* Visi Card */}
             <div className="bg-yellow-50 p-8 rounded-3xl border-2 border-yellow-100 relative overflow-hidden group hover:border-yellow-300 transition-all">
@@ -99,7 +99,7 @@ export default function ProfilPage() {
       </section>
 
       {/* ================= GURU & STAFF ================= */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="pt-4 pb-16 px-4 bg-gray-50">
          <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-10">Guru & Tenaga Pendidik</h2>
             

@@ -1,20 +1,20 @@
 import Link from "next/link";
 import Image from "next/image"; 
-import { Facebook, Instagram, Mail, Phone, MapPin, Video, Code2 } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, Video } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8 font-sans border-t-8 border-yellow-400">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12 mb-12">
 
-        {/* KOLOM 1: IDENTITAS & LOGO (Dikembalikan ke Kiri agar rapi) */}
+        {/* KOLOM 1: IDENTITAS & LOGO */}
         <div>
            <p className="text-gray-400 leading-relaxed text-sm">
               Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
            </p>
         </div>
 
-        {/* KOLOM 2: KONTAK (Tengah) */}
+        {/* KOLOM 2: KONTAK */}
         <div>
            <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Hubungi Kami</h4>
            <ul className="space-y-4 text-gray-300 text-sm">
@@ -33,7 +33,7 @@ const Footer = () => {
            </ul>
         </div>
 
-        {/* KOLOM 3: SOSMED (Kanan) */}
+        {/* KOLOM 3: SOSMED */}
         <div>
            <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Ikuti Kami</h4>
            <div className="flex gap-4 mb-6">
@@ -55,15 +55,22 @@ const Footer = () => {
 
       </div>
 
-      {/* COPYRIGHT & VERSION SECTION */}
+      {/* COPYRIGHT & VERSION SECTION (CENTERED) */}
       <div className="border-t border-gray-800 pt-8 mt-8">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center gap-6">
            
-           {/* Copyright */}
+           {/* Copyright & Powered By */}
            <div className="text-gray-500 text-sm">
               <p>© {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved.</p>
-              <p className="mt-1 text-gray-600">
-                 Powered by <span className="font-bold text-gray-400">PT Eintio Academic & Technology</span>
+              <p className="mt-2 text-gray-600">
+                 Powered by{' '}
+                 <Link 
+                   href="https://eintio.vercel.app/" 
+                   target="_blank"
+                   className="font-bold text-gray-400 hover:text-yellow-400 transition"
+                 >
+                   PT Eintio Academic & Technology
+                 </Link>
               </p>
            </div>
 
