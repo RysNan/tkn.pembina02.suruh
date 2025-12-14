@@ -9,22 +9,22 @@ export default function ProfilPage() {
     { 
       name: "Rahayu Kurniasari", 
       role: "Kepala Sekolah", 
-      image: "/images/rahayu.jpg" 
+      image: "/images/Rahayu.jpg" 
     },
     { 
       name: "Uswatul Umami, S.Pd AUD", 
       role: "Guru Kelas", 
-      image: "/images/uswatul.jpg" 
+      image: "/images/Uswatul.jpg" 
     },
     { 
       name: "Nur Sholekah, S.Pd", 
       role: "Guru Kelas", 
-      image: "/images/nur.jpg" 
+      image: "/images/Nur.jpg" 
     },
     { 
       name: "Rina Septi Nugraheni, S.Pd", 
       role: "Guru Kelas", 
-      image: "/images/rina.jpg" 
+      image: "/images/Rina.jpg" 
     },
   ];
 
