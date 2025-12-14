@@ -1,16 +1,38 @@
 import Link from "next/link";
-import Image from "next/image"; // IMPORT WAJIB
-import { Facebook, Instagram, Mail, Phone, MapPin, Video } from "lucide-react";
+import Image from "next/image"; 
+import { Facebook, Instagram, Mail, Phone, MapPin, Video, Code2 } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8 font-sans border-t-8 border-yellow-400">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12 mb-12">
 
-        {/* Kolom 2: Kontak (Data Real) */}
+        {/* KOLOM 1: IDENTITAS & LOGO (Dikembalikan ke Kiri agar rapi) */}
+        <div>
+           <div className="flex items-center gap-3 mb-6">
+              {/* Container Logo Footer */}
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm bg-white">
+                 <Image 
+                   src="/images/logo-tk.png" 
+                   alt="Logo TK"
+                   fill
+                   className="object-contain p-1" 
+                 />
+              </div>
+              <div>
+                 <h3 className="font-bold text-xl leading-none">TK Negeri</h3>
+                 <span className="text-yellow-400 font-bold text-lg">Pembina 02 Suruh</span>
+              </div>
+           </div>
+           <p className="text-gray-400 leading-relaxed text-sm">
+              Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
+           </p>
+        </div>
+
+        {/* KOLOM 2: KONTAK (Tengah) */}
         <div>
            <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Hubungi Kami</h4>
-           <ul className="space-y-4 text-gray-300">
+           <ul className="space-y-4 text-gray-300 text-sm">
               <li className="flex items-start gap-3">
                  <MapPin className="text-yellow-400 shrink-0" size={20} />
                  <span>Kecamatan Suruh, Kabupaten Semarang</span>
@@ -26,38 +48,50 @@ const Footer = () => {
            </ul>
         </div>
 
-        {/* Kolom 1: Identitas & Logo Baru */}
+        {/* KOLOM 3: SOSMED (Kanan) */}
         <div>
-           <p className="text-gray-400 leading-relaxed mb-6">
-              Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
-           </p>
-        </div>
-
-        {/* Kolom 3: Sosmed & Link (Data Real) */}
-        <div>
-           <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Sosial Media</h4>
-           <div className="flex gap-4 mb-8">
-              <Link href="https://facebook.com/TekaNegeriKebowan" target="_blank" className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition">
+           <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Ikuti Kami</h4>
+           <div className="flex gap-4 mb-6">
+              <Link href="https://facebook.com/TekaNegeriKebowan" target="_blank" className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition shadow-lg hover:scale-110">
                  <Facebook size={20} />
               </Link>
-              <Link href="https://instagram.com/tkn_pembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:bg-pink-500 transition">
+              <Link href="https://instagram.com/tkn_pembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:bg-pink-500 transition shadow-lg hover:scale-110">
                  <Instagram size={20} />
               </Link>
-              <Link href="https://tiktok.com/@tekanegeripembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+              <Link href="https://tiktok.com/@tekanegeripembina02suruh" target="_blank" className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition shadow-lg hover:scale-110">
                  <Video size={20} />
               </Link>
            </div>
-          
+           
+           <div className="text-xs text-gray-500">
+              <p>Mari berteman dan melihat keseruan kegiatan siswa kami di sosial media.</p>
+           </div>
         </div>
 
       </div>
 
-      {/* Copyright */}
-      <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-         © {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved. <br/> Powered By PT Eintio Academic & Technology
+      {/* COPYRIGHT & VERSION SECTION */}
+      <div className="border-t border-gray-800 pt-8 mt-8">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+           
+           {/* Copyright */}
+           <div className="text-gray-500 text-sm">
+              <p>© {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved.</p>
+              <p className="mt-1 text-gray-600">
+                 Powered by <span className="font-bold text-gray-400">PT Eintio Academic & Technology</span>
+              </p>
+           </div>
+
+           {/* Version Badge */}
+           <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full border border-gray-700">
+              <Code2 size={14} className="text-green-500" />
+              <span className="text-xs text-gray-400 font-mono">App Version 1.0.0</span>
+           </div>
+
+        </div>
       </div>
     </footer>
-  ); 
+  );
 };
 
 export default Footer;
