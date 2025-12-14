@@ -34,7 +34,7 @@ export default function KurikulumPage() {
             Kurikulum Merdeka
           </h1>
           <p className="text-yellow-50 text-xl max-w-3xl mx-auto font-medium">
-             Menerapkan pendekatan <strong>Deep Learning</strong> (Belajar Mendalam) untuk membangun pemahaman yang kuat dan karakter mandiri.
+             Menerapkan pendekatan <strong>Deep Learning</strong> (Belajar Mendalam) <br/> untuk membangun pemahaman yang kuat dan karakter mandiri
           </p>
         </div>
       </section>

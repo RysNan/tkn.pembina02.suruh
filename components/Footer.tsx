@@ -6,13 +6,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8 font-sans border-t-8 border-yellow-400">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12 mb-12">
-        
-        {/* Kolom 1: Identitas & Logo Baru */}
-        <div>
-           <p className="text-gray-400 leading-relaxed mb-6">
-              Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
-           </p>
-        </div>
 
         {/* Kolom 2: Kontak (Data Real) */}
         <div>
@@ -33,6 +26,13 @@ const Footer = () => {
            </ul>
         </div>
 
+        {/* Kolom 1: Identitas & Logo Baru */}
+        <div>
+           <p className="text-gray-400 leading-relaxed mb-6">
+              Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
+           </p>
+        </div>
+
         {/* Kolom 3: Sosmed & Link (Data Real) */}
         <div>
            <h4 className="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Sosial Media</h4>
@@ -47,24 +47,17 @@ const Footer = () => {
                  <Video size={20} />
               </Link>
            </div>
-           
-           <h4 className="font-bold text-lg mb-4 text-white">Menu Cepat</h4>
-           <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-              <Link href="/profil" className="hover:text-yellow-400 transition">Profil</Link>
-              <Link href="/kurikulum" className="hover:text-yellow-400 transition">Kurikulum</Link>
-              <Link href="/ppdb" className="hover:text-yellow-400 transition">PPDB</Link>
-              <Link href="/galeri" className="hover:text-yellow-400 transition">Galeri</Link>
-           </div>
+          
         </div>
 
       </div>
 
       {/* Copyright */}
       <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-         © {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved.
+         © {new Date().getFullYear()} TK Negeri Pembina 02 Suruh. All rights reserved. <br/> Powered By PT Eintio Academic & Technology
       </div>
     </footer>
-  );
+  ); 
 };
 
 export default Footer;

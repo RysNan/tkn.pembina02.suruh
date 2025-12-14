@@ -55,7 +55,7 @@ export default function Home() {
         </h1>
 
         <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-blue-50 font-medium leading-relaxed drop-shadow-md">
-          TK Negeri Pembina 02 Suruh. Cerdas, Kreatif, dan Berakhlak Mulia.
+          TK Negeri Pembina 02 Suruh <br/> Cerdas, Kreatif, dan Berakhlak Mulia.
         </p>
 
         {/* Tombol Aksi Utama (CTA) */}
