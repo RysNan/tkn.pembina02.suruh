@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: "Kurikulum", href: "/kurikulum" },
     { name: "Program", href: "/program" },
     { name: "Galeri", href: "/galeri" },
+    { name: "Alumni", href: "/alumni" },
     { name: "PPDB", href: "/ppdb" },
     { name: "Kontak", href: "/kontak" },
   ];

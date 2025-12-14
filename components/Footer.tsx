@@ -9,21 +9,6 @@ const Footer = () => {
 
         {/* KOLOM 1: IDENTITAS & LOGO (Dikembalikan ke Kiri agar rapi) */}
         <div>
-           <div className="flex items-center gap-3 mb-6">
-              {/* Container Logo Footer */}
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm bg-white">
-                 <Image 
-                   src="/images/logo-tk.png" 
-                   alt="Logo TK"
-                   fill
-                   className="object-contain p-1" 
-                 />
-              </div>
-              <div>
-                 <h3 className="font-bold text-xl leading-none">TK Negeri</h3>
-                 <span className="text-yellow-400 font-bold text-lg">Pembina 02 Suruh</span>
-              </div>
-           </div>
            <p className="text-gray-400 leading-relaxed text-sm">
               Mewujudkan generasi emas yang cerdas, kreatif, berakhlak mulia, dan cinta tanah air melalui Kurikulum Merdeka dengan pendekatan Deep Learning.
            </p>
@@ -84,8 +69,7 @@ const Footer = () => {
 
            {/* Version Badge */}
            <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full border border-gray-700">
-              <Code2 size={14} className="text-green-500" />
-              <span className="text-xs text-gray-400 font-mono">App Version 1.0.0</span>
+              <span className="text-xs text-gray-400 font-mono">Version 1.0.0</span>
            </div>
 
         </div>

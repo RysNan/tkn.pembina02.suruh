@@ -77,7 +77,7 @@ export default function ProgramPage() {
             Program Unggulan
           </h1>
           <p className="text-pink-50 text-xl max-w-2xl mx-auto font-medium">
-            Menciptakan kenangan indah masa kecil melalui kegiatan yang mendidik dan menyenangkan.
+            Menciptakan kenangan indah masa kecil melalui kegiatan <br/> yang mendidik dan menyenangkan.
           </p>
         </div>
       </section>
