@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // IMPORT WAJIB UNTUK GAMBAR
+import Image from "next/image"; 
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -28,25 +28,26 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* ================= BAGIAN LOGO BARU ================= */}
+          {/* ================= BAGIAN LOGO ================= */}
           <Link href="/" className="flex items-center gap-3 group">
             {/* Container Gambar Logo */}
             <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md group-hover:scale-110 transition">
-               {/* Pastikan nama file sesuai: /images/logo-tk.png (atau .jpg) */}
                <Image 
                  src="/images/logo-tk.png" 
                  alt="Logo TK Negeri Pembina 02 Suruh"
                  fill
-                 className="object-cover" // Agar gambar mengisi lingkaran dengan rapi
+                 className="object-cover"
                />
             </div>
             
-            {/* Teks Nama Sekolah */}
-            <div className="flex flex-col">
+            {/* Teks Nama Sekolah (Diberi gap-1 agar ada jarak) */}
+            <div className="flex flex-col gap-1"> 
               <span className="text-xl font-bold text-blue-900 leading-none group-hover:text-blue-600 transition font-poppins">
                 TK Negeri Pembina 02
               </span>
-              <span className="text-xs text-gray-500 font-bold tracking-wider">SURUH, KAB. SEMARANG</span>
+              <span className="text-xs text-gray-500 font-bold tracking-wider">
+                SURUH, KAB. SEMARANG
+              </span>
             </div>
           </Link>
           {/* ==================================================== */}
