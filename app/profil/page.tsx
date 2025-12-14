@@ -8,7 +8,7 @@ export default function ProfilPage() {
   const teachers = [
     { 
       name: "Rahayu Kurniasari", 
-      role: "Kepala Sekolah", 
+      role: "Guru Kelas", 
       image: "/images/Rahayu.JPG" 
     },
     { 
